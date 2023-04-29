@@ -14,8 +14,7 @@ namespace PriceParser.Application.Positions.Queries.GetPositionList
 
         public async Task<List<Position>> Handle(GetPositionListQuery request, CancellationToken cancellationToken)
         {
-            List<Position> positions = new List<Position>();
-            positions = parser.Parsing(request.Query);
+            var positions = await parser.Parsing(request.Query);
             return positions;
         }
     }

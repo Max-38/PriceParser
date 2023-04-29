@@ -5,7 +5,7 @@ namespace PriceParser.Parser
 {
     public class AirGunParser : IParser
     {
-        public List<Position> Parsing(string query)
+        public async Task<List<Position>> Parsing(string query)
         {
             List<Position> result = new List<Position>(); 
             string html = Request(query);
@@ -13,17 +13,19 @@ namespace PriceParser.Parser
             //IHtmlDocument document = domParser.ParseDocument(html);
             HtmlDocument document = new HtmlDocument();
             document.LoadHtml(html);
-
-            var positions = document.DocumentNode.SelectNodes("li");
+            //body//div[@class='page']//div[@class='container']//div[@class='main']//div[@class='row']//div[@class='col-md-8 col-lg-9']//ul[@class='catalog']//ul[@class='catalog']
+            var positions = document.DocumentNode.SelectNodes(".//ul[@class='catalog']//li");
             foreach (var item in positions)
             {
-                string status = item.SelectSingleNode(".//span[@class='secondary radius label']").InnerText;
-                if (status != "под заказ")
+                //string status = item.SelectSingleNode(".//span[@class='secondary radius label']//font").InnerText;
+                if (item.SelectSingleNode(".//span[@class='secondary radius label']//font") != null)
                 {
                     string name = item.SelectSingleNode(".//span[@class='title']").InnerText;
                     string priceText = item.SelectSingleNode(".//div[@class='price-wrap']//span[@class='price']").InnerText;
-                    decimal price = Convert.ToDecimal(priceText.Replace(" ", "").Remove(priceText.Length - 3));
-                    result.Add(new Position(name, price));
+                    priceText = priceText.Replace(" ", "");
+                    priceText = priceText.Remove(priceText.Length - 4);
+                    decimal price = Convert.ToDecimal(priceText);
+                    result.Add(new Position(new Guid(), name, price, "Air-Gun"));
                 }
             }
             return result;

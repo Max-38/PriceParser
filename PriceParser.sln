@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PriceParser.Application", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Parser", "Parser", "{9DCAE3EB-F6CA-4B6A-8025-310D844C509D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceParser.Parser", "Infrastructure\Parser\PriceParser.Parser\PriceParser.Parser.csproj", "{5F7BE351-BBC8-4047-A562-6EB7EA121106}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PriceParser.Parser", "Infrastructure\Parser\PriceParser.Parser\PriceParser.Parser.csproj", "{5F7BE351-BBC8-4047-A562-6EB7EA121106}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceParser.Web", "Presentation\PriceParser.Web\PriceParser.Web.csproj", "{547FFA4B-CBBB-450C-9960-354826D57108}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{5F7BE351-BBC8-4047-A562-6EB7EA121106}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F7BE351-BBC8-4047-A562-6EB7EA121106}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F7BE351-BBC8-4047-A562-6EB7EA121106}.Release|Any CPU.Build.0 = Release|Any CPU
+		{547FFA4B-CBBB-450C-9960-354826D57108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{547FFA4B-CBBB-450C-9960-354826D57108}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{547FFA4B-CBBB-450C-9960-354826D57108}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{547FFA4B-CBBB-450C-9960-354826D57108}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 		{9952A14D-0C82-4F72-B558-3190C42ACCBE} = {912B526D-15AF-42DD-841B-438F623E06CE}
 		{9DCAE3EB-F6CA-4B6A-8025-310D844C509D} = {291F6F76-C406-4D00-A242-134C5DF334CC}
 		{5F7BE351-BBC8-4047-A562-6EB7EA121106} = {9DCAE3EB-F6CA-4B6A-8025-310D844C509D}
+		{547FFA4B-CBBB-450C-9960-354826D57108} = {83446273-D999-4455-A2C7-9E33E6A40EEB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B1642257-C188-4944-B8E2-F07B798BF2ED}
