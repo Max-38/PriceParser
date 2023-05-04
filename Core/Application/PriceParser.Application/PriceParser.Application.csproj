@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Positions\Commands\" />
+    <Folder Include="RequestResult\Commands\" />
   </ItemGroup>
 
 </Project>
