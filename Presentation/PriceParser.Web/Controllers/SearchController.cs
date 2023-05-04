@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using PriceParser.Application.Positions.Queries.GetPositionList;
-using PriceParser.Web.Models;
+using PriceParser.Application.Positions.Queries.GetRequestResult;
 
 namespace PriceParser.Web.Controllers
 {
@@ -14,20 +13,14 @@ namespace PriceParser.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(string query)
         {
-            GetPositionListQuery search = new GetPositionListQuery
+            GetRequestResultQuery search = new GetRequestResultQuery
             {
                 Query = query
             };
 
-            var positions = await Mediator.Send(search);
+            var result = await Mediator.Send(search);
 
-            SearchResultModel searchResult = new SearchResultModel
-            {
-                Positions = positions,
-                BestPosition = positions.MinBy(item => item.Price)
-            };
-
-            return View(searchResult);
+            return View(result);
         }
     }
 }

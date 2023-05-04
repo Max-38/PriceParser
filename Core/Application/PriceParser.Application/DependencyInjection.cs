@@ -1,11 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using PriceParser.Application.Services;
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PriceParser.Application
 {
@@ -14,6 +9,7 @@ namespace PriceParser.Application
         public static IServiceCollection AddApplication (this IServiceCollection services)
         {
             services.AddMediatR(config => config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+            services.AddTransient<ItemService>();
 
             return services;
         }

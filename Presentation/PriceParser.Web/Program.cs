@@ -1,13 +1,14 @@
 using PriceParser.Application;
 using PriceParser.Application.Interfaces;
 using PriceParser.Parser;
+using PriceParser.Parser.Markets;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddApplication();
-builder.Services.AddTransient<IParser, AirGunParser>();
+builder.Services.AddParser();
 
 var app = builder.Build();
 

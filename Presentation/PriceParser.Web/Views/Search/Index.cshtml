@@ -1,6 +1,6 @@
 ﻿@using PriceParser;
 
-@model SearchResultModel
+@model RequestResult
 
 @{
     ViewData["Title"] = "Результат поиска";
@@ -8,7 +8,7 @@
 
 <h1>Результат поиска</h1>
 
-@if (Model.Positions.Count == 0)
+@if (Model == null)
 {
     <p>Ничего не найдено</p>
 }
@@ -21,22 +21,25 @@ else
             <th>Магазин</th>
         </thead>
         <tbody>
-            @foreach (var item in Model.Positions)
+            @foreach (var item in Model.Items)
             {
                 <tr>
                     <td>@item.Name</td>
                     <td>@item.Price</td>
-                    <td>@item.Market</td>
+                    <td><a href="@item.RedirectUrl">@item.Market</a></td>
                 </tr>
             }
         </tbody>
         <tfoot>
             <th>Лучшее предложение</th>
-            <tr>
-                <td>@Model.BestPosition.Name</td>
-                <td>@Model.BestPosition.Price</td>
-                <td>@Model.BestPosition.Market</td>
-            </tr>
+            @foreach (var item in Model.BestItems)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Price</td>
+                    <td><a href="@item.RedirectUrl">@item.Market</a></td>
+                </tr>
+            }   
         </tfoot>
     </table>
 }

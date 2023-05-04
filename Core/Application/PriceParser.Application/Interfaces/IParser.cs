@@ -9,6 +9,6 @@ namespace PriceParser.Application.Interfaces
 {
     public interface IParser
     {
-        public Task<List<Position>> Parsing(string query);
+        public Task<List<Item>> Parsing(string query);
     }
 }
