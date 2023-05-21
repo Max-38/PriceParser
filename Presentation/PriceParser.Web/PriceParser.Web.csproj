@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Application\PriceParser.Application\PriceParser.Application.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Parser\PriceParser.Parser\PriceParser.Parser.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\PriceParser.Data.EF\PriceParser.Data.EF.csproj" />
   </ItemGroup>
 
 </Project>

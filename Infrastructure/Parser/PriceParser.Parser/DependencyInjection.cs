@@ -1,11 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using PriceParser.Application.Interfaces;
 using PriceParser.Parser.Markets;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PriceParser.Parser
 {

@@ -1,0 +1,25 @@
+﻿@model LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="text-center">
+    <h1>Вход</h1>
+    <form asp-controller="Account" asp-action="Login" method="post" asp-route-returnUrl="@Model.ReturnUrl">
+        <div class="alert-warning" asp-validation-summary="All"></div>
+        <div>
+            <lable>Имя пользователя</lable>
+            <input asp-for="@Model.UserName" />
+            <span class="alert-warning" asp-validation-for="UserName"></span>
+        </div>
+        <div>
+            <lable>Пароль</lable>
+            <input asp-for="@Model.Password" />
+            <span class="alert-warning" asp-validation-for="UserName"></span>
+        </div>
+        <div>
+            <button type="submit">Войти</button>
+        </div>
+    </form>
+</div>

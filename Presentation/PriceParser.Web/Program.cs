@@ -1,11 +1,30 @@
+using Microsoft.AspNetCore.Identity;
+using PriceParser;
 using PriceParser.Application;
 using PriceParser.Application.Interfaces;
+using PriceParser.Data.EF.Identity;
 using PriceParser.Parser;
 using PriceParser.Parser.Markets;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbIdentit(builder.Configuration.GetConnectionString("DbIdentity"))
+                .AddIdentity<ApplicationUser, IdentityRole>(config =>
+                {
+                    config.Password.RequiredLength = 6;
+                    config.Password.RequireDigit = false;
+                    config.Password.RequireLowercase = false;
+                    config.Password.RequireNonAlphanumeric = false;
+                    config.Password.RequireUppercase = false;
+                })
+                .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.ConfigureApplicationCookie(config =>
+{
+    config.LoginPath = "/Account/Login";
+});
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddApplication();
 builder.Services.AddParser();
@@ -25,6 +44,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
