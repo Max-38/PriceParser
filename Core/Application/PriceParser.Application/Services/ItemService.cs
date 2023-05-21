@@ -1,10 +1,4 @@
-﻿using MediatR;
-using PriceParser.Application.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PriceParser.Application.Interfaces;
 
 namespace PriceParser.Application.Services
 {

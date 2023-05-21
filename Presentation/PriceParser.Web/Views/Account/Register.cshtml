@@ -1,0 +1,35 @@
+﻿@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="text-center">
+    <h1>Регистрация</h1>
+    <form asp-controller="Account" asp-action="Register" method="post" asp-route-returnUrl="@Model.ReturnUrl">
+        <div class="alert-warning" asp-validation-summary="All"></div>
+        <div>
+            <label>Имя пользователя</label>
+            <input asp-for="@Model.UserName" />
+            <span class="alert-warning" asp-validation-for="UserName"></span>
+        </div>
+        <div>
+            <lable>Пароль</lable>
+            <input asp-for="@Model.Password" />
+            <span class="alert-warning" asp-validation-for="UserName"></span>
+        </div>
+        <div>
+            <lable>Повторите пароль</lable>
+            <input asp-for="@Model.ConfirmPassword" />
+            <span class="alert-warning" asp-validation-for="@Model.ConfirmPassword"></span>
+        </div>
+        <div>
+            <p>
+                <input type="checkbox" asp-for="@Model.IsAdult" /> Мне есть 18 лет
+            </p>
+        </div>
+        <div>
+            <button type="submit">Зарегестрироваться</button>
+        </div>
+    </form>
+</div>

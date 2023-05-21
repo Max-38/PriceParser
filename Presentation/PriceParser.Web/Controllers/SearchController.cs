@@ -1,9 +1,11 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PriceParser.Application.Positions.Queries.GetRequestResult;
 
 namespace PriceParser.Web.Controllers
 {
+    [Authorize]
     public class SearchController : Controller
     {
         private IMediator mediator;
