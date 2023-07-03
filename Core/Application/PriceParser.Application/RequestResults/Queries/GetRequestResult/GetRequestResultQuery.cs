@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace PriceParser.Application.Positions.Queries.GetRequestResult
+namespace PriceParser.Application.RequestResults.Queries.GetRequestResult
 {
     public class GetRequestResultQuery : IRequest<RequestResult>
     {

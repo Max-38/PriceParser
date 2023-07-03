@@ -1,0 +1,42 @@
+﻿@using PriceParser.Application.RequestResults.Queries.GetHistory;
+
+@model RequestResultVm
+
+@{
+    ViewData["Title"] = "История";
+}
+
+<table style="width: 100%">
+    <thead>
+        <tr>
+            <th>Запрос: @Model.Name</th>
+            <th>Дата поиска: @Model.Date</th>
+        </tr>
+        <tr>
+            <th>Название</th>
+            <th>Цена</th>
+            <th>Магазин</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+                <td><a href="@item.RedirectUrl">@item.Market</a></td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+            <th>Лучшее предложение</th>
+            @foreach (var item in Model.BestItems)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Price</td>
+                    <td><a href="@item.RedirectUrl">@item.Market</a></td>
+                </tr>
+            }   
+        </tfoot>
+</table>

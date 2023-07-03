@@ -1,0 +1,57 @@
+﻿@using PriceParser.Application.RequestResults.Queries.GetListOfHistories;
+
+@model List<HistoryVm>
+
+@{
+    ViewData["Title"] = "История";
+}
+
+<h1>История</h1>
+
+@if(TempData["Success"] != null)
+{
+    <div class="green">
+        <h3>@TempData["Success"]</h3>
+    </div>
+}
+
+@if(Model.Count == 0)
+{
+    <p>История пуста</p>
+}
+else
+{
+        <table style="width: 100%">
+            <thead>
+                <tr>
+                    <th>Запрос</th>
+                    <th>Дата запроса</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Date</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <form asp-controller="History" asp-action="GetHistory" method="get">
+                                <input hidden name="id" value="@item.Id"/>
+                                <button type="submit">Открыть</button>
+                            </form>
+                        </td>
+                    <td>
+                        <form asp-controller="History" asp-action="Delete" method="post">
+                            <input hidden name="id" value="@item.Id" />
+                            <button type="submit">Удалить</button>
+                        </form>
+                    </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+}
+
+

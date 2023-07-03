@@ -1,17 +1,13 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using PriceParser.Application.Positions.Queries.GetRequestResult;
+using PriceParser.Application.RequestResults.Queries.GetRequestResult;
 
 namespace PriceParser.Web.Controllers
 {
     [Authorize]
-    public class SearchController : Controller
+    public class SearchController : BaseController
     {
-        private IMediator mediator;
-        protected IMediator Mediator =>
-            mediator ??= HttpContext.RequestServices.GetService<IMediator>();
-
         [HttpGet]
         public async Task<IActionResult> Index(string query)
         {
