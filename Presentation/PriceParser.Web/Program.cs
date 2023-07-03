@@ -2,9 +2,12 @@ using Microsoft.AspNetCore.Identity;
 using PriceParser;
 using PriceParser.Application;
 using PriceParser.Application.Interfaces;
+using PriceParser.Application.Mappings;
+using PriceParser.Data.EF;
 using PriceParser.Data.EF.Identity;
 using PriceParser.Parser;
 using PriceParser.Parser.Markets;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +26,14 @@ builder.Services.AddDbIdentit(builder.Configuration.GetConnectionString("DbIdent
 builder.Services.ConfigureApplicationCookie(config =>
 {
     config.LoginPath = "/Account/Login";
+});
+
+builder.Services.AddPriceParserDb(builder.Configuration.GetConnectionString("PriceParser"));
+
+builder.Services.AddAutoMapper(config =>
+{
+    config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
+    config.AddProfile(new AssemblyMappingProfile(typeof(IRequestResultRepository).Assembly));
 });
 
 builder.Services.AddControllersWithViews();

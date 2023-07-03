@@ -10,9 +10,9 @@ namespace PriceParser.Application.Services
 
         public ItemService(IEnumerable<IParser> parsers)
         {
-            airGunParser = parsers.FirstOrDefault(x => x.GetType().Name == "AirGunParser");
-            huntWorldParser = parsers.FirstOrDefault(x => x.GetType().Name == "HuntWorldParser");
-            kolchugaParser = parsers.FirstOrDefault(x => x.GetType().Name == "KolchugaParser");
+            airGunParser = parsers.FirstOrDefault(x => x.GetType().Name == "AirGunParser" || x.GetType().BaseType.Name == "AirGunParser");
+            huntWorldParser = parsers.FirstOrDefault(x => x.GetType().Name == "HuntWorldParser" || x.GetType().BaseType.Name == "HuntWorldParser");
+            kolchugaParser = parsers.FirstOrDefault(x => x.GetType().Name == "KolchugaParser" || x.GetType().BaseType.Name == "KolchugaParser" );
         }
 
         public async Task<List<Item>> GetItems (string query)

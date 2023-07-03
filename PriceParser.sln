@@ -25,6 +25,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PriceParser.Web", "Presenta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PriceParser.Data.EF", "Infrastructure\PriceParser.Data.EF\PriceParser.Data.EF.csproj", "{F5F1511B-320F-4942-BBED-48D1C06B7B04}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{37F6E3E6-30C6-4B95-B6EC-1FB7E78253B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceParser.Tests", "Tests\PriceParser.Tests\PriceParser.Tests.csproj", "{0D889B82-8178-42A0-8BE5-C76CD92C5995}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,10 @@ Global
 		{F5F1511B-320F-4942-BBED-48D1C06B7B04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5F1511B-320F-4942-BBED-48D1C06B7B04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5F1511B-320F-4942-BBED-48D1C06B7B04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D889B82-8178-42A0-8BE5-C76CD92C5995}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D889B82-8178-42A0-8BE5-C76CD92C5995}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D889B82-8178-42A0-8BE5-C76CD92C5995}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D889B82-8178-42A0-8BE5-C76CD92C5995}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +72,7 @@ Global
 		{5F7BE351-BBC8-4047-A562-6EB7EA121106} = {9DCAE3EB-F6CA-4B6A-8025-310D844C509D}
 		{547FFA4B-CBBB-450C-9960-354826D57108} = {83446273-D999-4455-A2C7-9E33E6A40EEB}
 		{F5F1511B-320F-4942-BBED-48D1C06B7B04} = {291F6F76-C406-4D00-A242-134C5DF334CC}
+		{0D889B82-8178-42A0-8BE5-C76CD92C5995} = {37F6E3E6-30C6-4B95-B6EC-1FB7E78253B7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B1642257-C188-4944-B8E2-F07B798BF2ED}

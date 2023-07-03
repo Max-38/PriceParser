@@ -1,4 +1,5 @@
-﻿@using PriceParser;
+﻿@using Newtonsoft.Json;
+@using PriceParser;
 
 @model RequestResult
 
@@ -42,4 +43,23 @@ else
             }   
         </tfoot>
     </table>
+    
+    <div>
+        <form asp-controller="History" asp-action="Save" method="post">
+            <input hidden name="id" value="@Model.Id" />
+       
+            @foreach (var item in Model.BestItems)
+            {
+                <input hidden name="bestItemsJson" value="@JsonConvert.SerializeObject(item)" />
+            }
+            @foreach (var item in Model.Items)
+            {
+                <input hidden name="itemsJson" value="@JsonConvert.SerializeObject(item)" />
+            }
+
+            <input hidden name="query" value="@Model.Query" />
+            <input hidden name="date" value="@Model.Date" />
+            <button type="submit">Сохранить</button>
+        </form>
+    </div>
 }
